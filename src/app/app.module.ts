@@ -6,6 +6,18 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+////requerimitos firebase
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+
+var config = {
+  apiKey: "AIzaSyDFnAmZsWutwvYPaaD2puSesveEfxTE9OM",
+  authDomain: "todofb-ccbcf.firebaseapp.com",
+  databaseURL: "https://todofb-ccbcf.firebaseio.com",
+  projectId: "todofb-ccbcf",
+  storageBucket: "todofb-ccbcf.appspot.com",
+  messagingSenderId: "859314057525"
+};
 
 @NgModule({
   declarations: [
@@ -14,7 +26,8 @@ import { HomePage } from '../pages/home/home';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(config,'appToDo')
   ],
   bootstrap: [IonicApp],
   entryComponents: [
