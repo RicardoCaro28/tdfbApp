@@ -21,6 +21,19 @@ export class HomePage {
     });
   }
 
-  }
+  addTarea(){
+    let alertv = this.alert.create({
+      title:'Tarea',
+      message: "Ingresa una nueva tarea",
+      inputs:[{name:'tarea',placeholder:'nueva tarea'}],
+      buttons:[{text:'Cancelar', handler: data =>{console.log('se cancelo!')}},
+              {text:'Guardar', handler: data =>{this.tareas2.push({title:data.title,done:false});
+            }}
+    ]
+    });
+    alertv.present(alertv);
+  }//add tarea 
+
+  }///clase
 
 
