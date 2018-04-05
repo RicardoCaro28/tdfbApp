@@ -15,7 +15,7 @@ export class HomePage {
 
   constructor(public navCtrl: NavController, public alert: AlertController, public db: AngularFireDatabase) {
 
-    this.tareas2 = this.db.list('listaTareas');
+    this.tareas2 = this.db.list('tareas');
     this.tareas = this.tareas2.snapshotChanges().map(changes => {
       return changes.map(c => ({ key: c.payload.key, ...c.payload.val() }));
     });
@@ -23,13 +23,14 @@ export class HomePage {
 
   addTarea(){
     let alertv = this.alert.create({
-      title:'Tarea',
+      title:'Tareas',
       message: "Ingresa una nueva tarea",
       inputs:[{name:'tarea',placeholder:'nueva tarea'}],
-      buttons:[{text:'Cancelar', handler: data =>{console.log('se cancelo!')}},
-              {text:'Guardar', handler: data =>{this.tareas2.push({title:data.title,done:false});
-            }}
-    ]
+      buttons: [{text: 'cancelar', handler: data => {console.log('Cancel clicked');}},
+        {text: 'guardar',handler: data => { this.tareas2.push({ title: data ,done: false});
+          }
+        }
+      ]
     });
     alertv.present(alertv);
   }//add tarea 
