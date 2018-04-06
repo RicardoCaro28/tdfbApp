@@ -15,7 +15,7 @@ export class HomePage {
 
   constructor(public navCtrl: NavController, public alert: AlertController, public db: AngularFireDatabase) {
 
-    this.tareas2 = this.db.list('tareas');
+    this.tareas2 = this.db.list('listaTareas');
     this.tareas1 = this.tareas2.snapshotChanges().map(changes => {
       return changes.map(c => ({ key: c.payload.key, ...c.payload.val() }));
     });
