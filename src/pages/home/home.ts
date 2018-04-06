@@ -3,7 +3,7 @@ import { IonicPage, NavController, AlertController } from 'ionic-angular';
 
 import { AngularFireList, AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
-
+@IonicPage()
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
