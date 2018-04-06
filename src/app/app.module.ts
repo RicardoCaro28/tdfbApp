@@ -29,6 +29,7 @@ var config = {
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(config),
     AngularFireDatabaseModule
+    
   ],
   bootstrap: [IonicApp],
   entryComponents: [
