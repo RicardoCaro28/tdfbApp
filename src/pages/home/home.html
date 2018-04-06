@@ -14,8 +14,8 @@
   <ion-content>
     
       <ion-list>
-          <ion-item class="text" *ngFor="let item of listaTareas | async">
-             {{item.$value}}
+          <ion-item *ngFor="let item of listaTareas | async">
+             {{item.title}}
           </ion-item>
        </ion-list>
 
