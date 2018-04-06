@@ -11,12 +11,12 @@ import { Observable } from 'rxjs/Observable';
 export class HomePage {
 
   tareas2: AngularFireList<any>;
-  tareas: Observable<any[]>;
+  tareas1: Observable<any[]>;
 
   constructor(public navCtrl: NavController, public alert: AlertController, public db: AngularFireDatabase) {
 
     this.tareas2 = this.db.list('tareas');
-    this.tareas = this.tareas2.snapshotChanges().map(changes => {
+    this.tareas1 = this.tareas2.snapshotChanges().map(changes => {
       return changes.map(c => ({ key: c.payload.key, ...c.payload.val() }));
     });
   }
@@ -26,7 +26,7 @@ export class HomePage {
       title:'Tareas',
       message: "Ingresa una nueva tarea",
       inputs:[{name:'tarea',placeholder:'nueva tarea'}],
-      buttons: [{text: 'cancelar', handler: data => {console.log('Cancel clicked');}},
+      buttons: [{text: 'cancelar', handler: data => {console.log('se cancelo');}},
         {text: 'guardar',handler: data => { this.tareas2.push({ title: data ,done: false});
           }
         }
